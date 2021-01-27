@@ -11,12 +11,10 @@
 		</div>
 
 		<div class="grid-8">
-			<h2><?php the_field('titulo_historia');?></h2>
-			<?php the_field('historia_info');?>
-			<h2><?php the_field('titulo_visao');?></h2>
-			<?php the_field('visao_info');?>
-			<h2><?php the_field('titulo_valores');?></h2>
-			<?php the_field('valores_info');?>
+			<?php if(have_rows('conteudo_sobre')): while(have_rows('conteudo_sobre')) : the_row(); ?>
+				<h2><?php the_sub_field('titulo_sobre');?></h2>
+				<?php the_sub_field('texto_sobre');?>
+			<?php endwhile; else : endif; ?>
 		</div>
 	</section>
 <?php endwhile; else: endif?>
